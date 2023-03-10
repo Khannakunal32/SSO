@@ -10,7 +10,9 @@ import (
 	structures "github.com/khannakunal32/sso/src"
 )
 
-func LoginController(w http.ResponseWriter, r *http.Request) {
+// Logs in the user and sets the token in cookies with expiration date
+
+func Login(w http.ResponseWriter, r *http.Request) {
 	var Credentials structures.Credentials
 
 	// decoding the json passed by user into credentials
@@ -29,7 +31,7 @@ func LoginController(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// expiration time for token
-	expirationTime := time.Now().Add(time.Minute * 120)
+	expirationTime := time.Now().Add(time.Second * 120)
 
 	// creating claims and expiration of token
 	claims := &structures.Claims{

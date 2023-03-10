@@ -8,7 +8,9 @@ import (
 	structures "github.com/khannakunal32/sso/src"
 )
 
-func HomeController(w http.ResponseWriter, r *http.Request) {
+// Home route fetches the token from cookies and authenticates user
+
+func Home(w http.ResponseWriter, r *http.Request) {
 
 	// fetching cookie from the browser
 	cookie, err := r.Cookie("token")
